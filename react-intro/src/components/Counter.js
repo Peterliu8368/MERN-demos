@@ -30,17 +30,39 @@ class Counter extends React.Component {
     });
   };
 
+  // This is what you have to do if you don't use .map to render a list.
+  displayDateList = () => {
+    const listItems = [];
+
+    for (let i = 0; i < this.state.clickDates.length; i++) {
+      const dateStr = this.state.clickDates[i].toString();
+
+      listItems.push(<li>{dateStr}</li>);
+    }
+    console.log(listItems);
+
+    return listItems;
+  };
+
   render() {
     return (
       <div>
         <h2>{this.props.title}</h2>
         <p>{this.props.description}</p>
-        <ul>
-          {/* .map is used to create a new array where each item is an HTML element containing the data. */}
+
+        {/* .map is used to create a new array where each item is an HTML element containing the data. */}
+        {/* <ul>
           {this.state.clickDates.map((date) => {
             return <li>{date.toString()}</li>;
           })}
         </ul>
+         */}
+
+        {/* Render the dates manually without .map */}
+        <ul>{this.displayDateList()}</ul>
+
+        {/* Imagine it like this: to render a list */}
+        <ul>{[<li>{"date1"}</li>, <li>{"date2"}</li>]}</ul>
         <button
           onClick={(event) => {
             this.handleClickCount(event);
