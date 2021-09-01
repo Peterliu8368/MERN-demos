@@ -51,3 +51,20 @@ const expectedMerge4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  *    both given halves.
  */
 function merge(left, right) {}
+
+// mergeSort
+const numsOrdered = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const numsRandomOrder = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
+const numsReversed = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+const expectedSort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+/**
+ * Creates a new sorted array based on the given nums being recursively split
+ * and merged.
+ * Best: O(n log(n)) linearithmic.
+ * Avg: O(n log(n)) linearithmic.
+ * Worst: O(n log(n)) linearithmic.
+ * @param {Array<number>} nums
+ * @returns {Array<number>} A New sorted array.
+ */
+function mergeSort(nums) {}
