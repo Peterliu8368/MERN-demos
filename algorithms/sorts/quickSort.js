@@ -37,7 +37,7 @@ const nums2 = [1, 17, 12, 3, 9, 13, 21, 4, 27];
 const expected2 = [1, 3, 4, 9, 12, 13, 17, 21, 27];
 
 const nums3 = [11, 8, 14, 3, 3, 3, 6, 2, 7];
-const expected3 = [2, 3, 3, 6, 7, 8, 11, 14];
+const expected3 = [2, 3, 3, 3, 6, 7, 8, 11, 14];
 
 const petersTest = [1, 17, 12, 3, 9, 13, 21, 4, 27];
 const expectedPetersTest = [1, 3, 4, 9, 12, 13, 17, 21, 27];
@@ -54,4 +54,24 @@ const expectedPetersTest = [1, 3, 4, 9, 12, 13, 17, 21, 27];
  *    given array being processed.
  * @returns {Array<number>} The given array after being sorted.
  */
-function quickSort(nums = [], left = 0, right = nums.length - 1) {}
+function quickSort(nums = [], left = 0, right = nums.length - 1) {
+  if (left < right) {
+    const pivotIndex = partition(nums, left, right);
+    quickSort(nums, left, pivotIndex);
+    quickSort(nums, pivotIndex + 1, right);
+  }
+  return nums;
+}
+
+const { deepStrictEqual } = require("assert");
+
+[
+  [nums1, expected1],
+  [nums2, expected2],
+  [nums3, expected3],
+  [petersTest, expectedPetersTest],
+].forEach((testCase, i) => {
+  const [arg, expected] = testCase;
+  const actual = quickSort(arg);
+  deepStrictEqual(actual, expected, `Test ${i + 1} failed.`);
+});
