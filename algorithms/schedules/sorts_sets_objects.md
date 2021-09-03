@@ -15,3 +15,5 @@
    - [mergeSort](../sorts/mergeSort.js)
 4. Thur
    - [partition](../sorts/partition.js)
+5. Fri
+   - [quickSort](../sorts/quickSort.js)
