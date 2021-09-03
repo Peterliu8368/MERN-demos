@@ -1,4 +1,8 @@
 const Flashcard = (props) => {
+  if (props.card === null) {
+    return null;
+  }
+
   return (
     <section
       className="card"
@@ -9,10 +13,10 @@ const Flashcard = (props) => {
       <h3>{props.card.category}</h3>
 
       {props.card.flipped === true ? ( // if true
-        <p>{props.card.back}</p> // do this
+        <p>{props.card.correct_answer}</p> // do this
       ) : (
         // else
-        <p>{props.card.front}</p> // do this
+        <p>{props.card.question}</p> // do this
       )}
 
       <button

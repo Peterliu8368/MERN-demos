@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./App.css";
-import flashcardsData from "./flashcards.json";
+// import flashcardsData from "./flashcards.json";
 
 import DisplayFormData from "./components/DisplayFormData";
 import Flashcard from "./components/Flashcard";
+
+import axios from "axios";
 
 function App() {
   /* 
@@ -13,12 +15,38 @@ function App() {
     in updated state data. Never mutate the current state var directly.
   */
   //    [firstItem, secondItem]     = useState(startingData);
-  const [flashcards, setFlashcards] = useState(flashcardsData);
+  const [flashcards, setFlashcards] = useState(null);
 
   // Form State
   const [category, setCategory] = useState("");
   const [front, setFront] = useState("");
   const [back, setBack] = useState("");
+
+  /* 
+  useEffect ALWAYS runs on the first load of the component (when mounted)
+  additionally it runs:
+    - if there is no array passed to the 2nd argument, it runs every time ANY
+      state changes.
+    - if there is an empty array as 2nd arg, it runs only on first load.
+    - if any state vars are added to the array in the 2nd arg, it runs
+      each time any of those state vars change.
+  */
+  useEffect(() => {
+    axios
+      .get(
+        "https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean"
+      )
+      .then((resp) => {
+        console.log(resp.data);
+        // Looking at the data we can see the array of flashcards is in data.results
+        setFlashcards(resp.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  console.log("log AFTER API request has been made");
 
   const handleFlashcardClick = (cardToFlip) => {
     /* 
@@ -44,8 +72,8 @@ function App() {
     const newCard = {
       // keyName: value
       category: category,
-      front: front,
-      back: back,
+      question: front,
+      correct_answer: back,
     };
 
     // new array with newCard at start and the rest after.
@@ -130,17 +158,32 @@ function App() {
         <button disabled={disableSubmitButton}>Add Card</button>
       </form>
 
+      {/* When the left of && is truthy the right of && will be displayed */}
+
+      {/* This will be displayed */}
+      {true && <h2>This is conditionally rendered</h2>}
+
+      {/* This will not be displayed */}
+      {false && <h2>Won't be rendered</h2>}
+
       <main className="flex-row flex-wrap">
-        {flashcards.map((flashcard, i) => {
-          return (
-            <Flashcard
-              key={i}
-              card={flashcard}
-              handleFlashcardClick={handleFlashcardClick}
-              handleFlashcardDelete={handleFlashcardDelete}
-            />
-          );
-        })}
+        {flashcards === null ? (
+          <img
+            src="http://static.demilked.com/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-14.gif"
+            alt="loading"
+          />
+        ) : (
+          flashcards.map((flashcard, i) => {
+            return (
+              <Flashcard
+                key={i}
+                card={flashcard}
+                handleFlashcardClick={handleFlashcardClick}
+                handleFlashcardDelete={handleFlashcardDelete}
+              />
+            );
+          })
+        )}
       </main>
     </div>
   );
