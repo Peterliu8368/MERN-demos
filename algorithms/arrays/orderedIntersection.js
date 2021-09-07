@@ -31,4 +31,26 @@ const expected3 = [];
  *    sorted and contains only the shared values between the two arrays
  *    deduped.
  */
-function orderedIntersection(sortedA, sortedB) {}
+function orderedIntersection(sortedA, sortedB) {
+  let idxA = 0;
+  let idxB = 0;
+
+  const intersection = [];
+
+  while (idxA < sortedA.length && idxB < sortedB.length) {
+    if (sortedA[idxA] === sortedB[idxB]) {
+      if (intersection[intersection.length - 1] !== sortedA[idxA]) {
+        // add it only if the last num added isn't the same num
+        intersection.push(sortedA[idxA]);
+      }
+      idxA++;
+      idxB++;
+    } else if (sortedA[idxA] < sortedB[idxB]) {
+      idxA++;
+      // Not === and not less than, so it's greater.
+    } else {
+      idxB++;
+    }
+  }
+  return intersection;
+}
