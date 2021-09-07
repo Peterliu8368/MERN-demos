@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import UsersTable from "./components/UsersTable";
 import DisplayError from "./components/Error";
 import Loading from "./components/Loading";
+import UserCard from "./components/UserCard";
 
 function App() {
   const [users, setUsers] = useState(null);
@@ -59,6 +60,7 @@ function App() {
       )}
 
       <DisplayError error={error} />
+      <UserCard user={selectedUser} />
       <UsersTable users={users} setSelectedUser={setSelectedUser} />
     </div>
   );
