@@ -1,7 +1,7 @@
 import { striped } from "./UsersTable.module.css";
 import Address from "./Address";
 
-const UsersTable = ({ users }) => {
+const UsersTable = ({ users, setSelectedUser }) => {
   if (!users) {
     return null;
   }
@@ -19,7 +19,7 @@ const UsersTable = ({ users }) => {
       </thead>
       <tbody>
         {users.map(({ id, name, username, email, address }, i) => (
-          <tr key={id}>
+          <tr key={id} onClick={(_e) => setSelectedUser(users[i])}>
             <td>{i + 1}</td>
             <td>{name}</td>
             <td>{username}</td>

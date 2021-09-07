@@ -9,6 +9,7 @@ function App() {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
 
   const handleFetchClick = (e) => {
     setLoading(true);
@@ -58,7 +59,7 @@ function App() {
       )}
 
       <DisplayError error={error} />
-      <UsersTable users={users} />
+      <UsersTable users={users} setSelectedUser={setSelectedUser} />
     </div>
   );
 }
