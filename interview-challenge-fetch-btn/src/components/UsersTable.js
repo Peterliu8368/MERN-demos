@@ -17,12 +17,12 @@ const UsersTable = ({ users }) => {
         </tr>
       </thead>
       <tbody>
-        {users.map((user, i) => (
-          <tr key={user.id}>
+        {users.map(({ id, name, username, email, address }, i) => (
+          <tr key={id}>
             <td>{i + 1}</td>
-            <td>{user.name}</td>
-            <td>{user.username}</td>
-            <td>{user.email}</td>
+            <td>{name}</td>
+            <td>{username}</td>
+            <td>{email}</td>
             <td></td>
           </tr>
         ))}
