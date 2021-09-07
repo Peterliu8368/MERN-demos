@@ -2,13 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import React, { useState } from "react";
+import UsersTable from "./components/UsersTable";
+import DisplayError from "./components/Error";
 
 function App() {
   const [users, setUsers] = useState(null);
   const [error, setError] = useState(null);
 
   const handleFetchClick = (e) => {
-    // call api
     // fetch("http://httpstat.us/404")
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((resp) => {
@@ -22,6 +23,7 @@ function App() {
         setError(null);
       })
       .catch((err) => {
+        console.log(err);
         setError(err);
       });
   };
@@ -42,8 +44,9 @@ function App() {
       >
         {fetchBtnText}
       </button>
-      {error && <p style={{ color: "red" }}>{error.message}</p>}
-      {users && users.map((user) => <p key={user.id}>{user.name}</p>)}
+
+      <DisplayError error={error} />
+      <UsersTable users={users} />
     </div>
   );
 }
