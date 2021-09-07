@@ -1,10 +1,12 @@
+import { striped } from "./UsersTable.module.css";
+
 const UsersTable = ({ users }) => {
   if (!users) {
     return null;
   }
 
   return (
-    <table>
+    <table className={striped}>
       <thead>
         <tr>
           <th>#</th>
