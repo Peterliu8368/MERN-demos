@@ -20,11 +20,14 @@ function App() {
       })
       .then((resData) => {
         setUsers(resData);
+        setError(null);
       })
       .catch((err) => {
         setError(err);
       });
   };
+
+  const fetchBtnText = users ? "Refresh User Data" : "Fetch Users";
 
   // If this were a larger project, I would use a CSS-in-js library instead of inline-styles.
   return (
@@ -38,7 +41,7 @@ function App() {
           marginBottom: "2rem",
         }}
       >
-        Fetch
+        {fetchBtnText}
       </button>
       {error && <p style={{ color: "red" }}>{error.message}</p>}
       {users && users.map((user) => <p key={user.id}>{user.name}</p>)}
