@@ -1,9 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import React, { useState } from "react";
 import UsersTable from "./components/UsersTable";
 import DisplayError from "./components/Error";
+import Loading from "./components/Loading";
 
 function App() {
   const [users, setUsers] = useState(null);
@@ -41,15 +41,9 @@ function App() {
   // If this were a larger project, I would use a CSS-in-js library instead of inline-styles.
   return (
     <div style={{ maxWidth: "85%", margin: "0 auto" }}>
-      {loading ? (
-        <img
-          src="https://i.gifer.com/ZZ5H.gif"
-          alt="Loading"
-          height="40px"
-          width="40px"
-          style={{ marginTop: "2rem", marginBottom: "2rem" }}
-        />
-      ) : (
+      <Loading loading={loading} />
+
+      {!loading && (
         <button
           onClick={handleFetchClick}
           style={{
