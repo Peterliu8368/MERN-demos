@@ -1,4 +1,5 @@
 import { striped } from "./UsersTable.module.css";
+import Address from "./Address";
 
 const UsersTable = ({ users }) => {
   if (!users) {
@@ -23,7 +24,9 @@ const UsersTable = ({ users }) => {
             <td>{name}</td>
             <td>{username}</td>
             <td>{email}</td>
-            <td></td>
+            <td>
+              <Address address={address} />
+            </td>
           </tr>
         ))}
       </tbody>
