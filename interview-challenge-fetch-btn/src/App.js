@@ -2,7 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import React, { useState } from "react";
-import { setDefaultHandler } from "workbox-routing";
 
 function App() {
   const [users, setUsers] = useState(null);
