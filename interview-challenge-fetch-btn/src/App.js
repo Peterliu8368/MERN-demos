@@ -26,10 +26,21 @@ function App() {
       });
   };
 
+  // If this were a larger project, I would use a CSS-in-js library instead of inline-styles.
   return (
-    <div>
-      <button onClick={handleFetchClick}>Fetch</button>
-
+    <div style={{ maxWidth: "85%", margin: "0 auto" }}>
+      <button
+        onClick={handleFetchClick}
+        style={{
+          padding: 5,
+          fontSize: 22,
+          marginTop: "2rem",
+          marginBottom: "2rem",
+        }}
+      >
+        Fetch
+      </button>
+      {error && <p style={{ color: "red" }}>{error.message}</p>}
       {users && users.map((user) => <p key={user.id}>{user.name}</p>)}
     </div>
   );
