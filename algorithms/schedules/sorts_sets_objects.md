@@ -17,3 +17,10 @@
    - [partition](../sorts/partition.js)
 5. Fri
    - [quickSort](../sorts/quickSort.js)
+
+## Week 2 - [Sets & Arrays](../arrays)
+
+- [sets intro](../arrays/sets.md)
+
+1. Mon
+   - [orderedIntersection](../arrays/orderedIntersection.js)
