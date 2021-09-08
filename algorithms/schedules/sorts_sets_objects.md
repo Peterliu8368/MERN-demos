@@ -24,3 +24,7 @@
 
 1. Mon
    - [orderedIntersection](../arrays/orderedIntersection.js)
+2. Tue
+   - [diagonalDifference](../arrays/diagonalDifference.js)
+   - [allNonConsecutive](../arrays/allNonConsecutive.js)
+   - [orderedMultisetUnion](../arrays/orderedMultisetUnion.js)
