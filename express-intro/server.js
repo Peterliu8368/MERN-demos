@@ -68,6 +68,8 @@ app.get("/api/cities/:id", (req, res) => {
   res.json({ id: req.params.id });
 });
 
+// This is at the bottom because we are not ready for requests until the
+// the routes have been set up.
 app.listen(port, () => {
   console.log(`Listening on port ${port} for REQuests to RESpond to.`);
 });
