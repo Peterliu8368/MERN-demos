@@ -43,4 +43,18 @@ const expected3 = [
  *    this context means the numbers whose indexes are one after the other
  *    only.
  */
-function findConsqSums(nums, targetSum) {}
+function findConsqSums(nums, targetSum) {
+  const arr = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    let sum = nums[i];
+
+    for (let j = i + 1; j <= nums.length; j++) {
+      if (sum === targetSum) {
+        arr.push(nums.slice(i, j));
+      }
+      sum += nums[j];
+    }
+  }
+  return arr;
+}

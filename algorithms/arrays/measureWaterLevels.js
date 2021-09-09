@@ -37,4 +37,16 @@ const expected7 = -1;
  * @param {Array<number>} waterLevels Non-empty .
  * @returns {number} The max water-level rise amount or -1 if none.
  */
-function measureWaterLevels(waterLevels) {}
+function measureWaterLevels(levels) {
+  let largestRise = -1;
+  let lowestLevel = levels[0];
+
+  for (let i = 1; i < levels.length; i++) {
+    if (levels[i] - lowestLevel > largestRise) {
+      largestRise = levels[i] - lowestLevel;
+    } else if (levels[i] < lowestLevel) {
+      lowestLevel = levels[i];
+    }
+  }
+  return largestRise === 0 ? -1 : largestRise;
+}
