@@ -28,3 +28,8 @@
    - [diagonalDifference](../arrays/diagonalDifference.js)
    - [allNonConsecutive](../arrays/allNonConsecutive.js)
    - [orderedMultisetUnion](../arrays/orderedMultisetUnion.js)
+3. Wed
+   - [measureWaterLevels](../arrays/measureWaterLevels.js)
+   - [symmetricDifferences](../arrays/symmetricDifferences.js)
+4. Thur
+   - [findConsqSums](../arrays/findConsqSums.js)
