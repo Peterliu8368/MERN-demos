@@ -34,8 +34,8 @@ function twoSum(nums, targetSum) {
   const numsAndIndices = {};
 
   for (let i = 0; i < nums.length; i++) {
-    const num = nums[i],
-      diff = targetSum - num;
+    const num = nums[i];
+    const diff = targetSum - num;
 
     if (numsAndIndices.hasOwnProperty(diff)) {
       const addendIdx = numsAndIndices[diff];
