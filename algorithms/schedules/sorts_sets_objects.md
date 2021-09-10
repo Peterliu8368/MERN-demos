@@ -33,3 +33,6 @@
    - [symmetricDifferences](../arrays/symmetricDifferences.js)
 4. Thur
    - [findConsqSums](../arrays/findConsqSums.js)
+5. Fri
+   - [twoSum](../arrays/twoSum.js)
+   - [kMostFrequent](../arrays/kMostFrequent.js)
