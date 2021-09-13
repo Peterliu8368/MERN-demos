@@ -36,3 +36,9 @@
 5. Fri
    - [twoSum](../arrays/twoSum.js)
    - [kMostFrequent](../arrays/kMostFrequent.js)
+
+## Week 3 - Object Practice
+
+1. Mon
+   - [entries](../recreated_methods/Object/entries.js)
+   - [insert](../objects/insert.js)
